@@ -1,0 +1,54 @@
+Name:           fpy-mvp
+Version:        0.1.0.0
+Description:    Format-Preserving YAML
+Homepage:       https://github.com/jaspervdj/fpy-mvp#readme
+Bug-reports:    https://github.com/jaspervdj/fpy-mvp/issues
+Author:         Jasper Van der Jeugt <m@jaspervdj.be>
+Maintainer:     Jasper Van der Jeugt <m@jaspervdj.be>
+Copyright:      2018 Jasper Van der Jeugt
+License:        BSD3
+License-file:   LICENSE
+Build-type:     Simple
+Cabal-version:  >= 1.10
+
+Extra-source-files:
+  README.md
+
+Source-repository head
+  Type: git
+  Location: https://github.com/jaspervdj/fpy-mvp
+
+Library
+  Hs-source-dirs:   lib
+  Default-language: Haskell2010
+  Ghc-options:      -Wall
+
+  Exposed-modules:
+    FPY
+    FPY.Dump
+    FPY.Lens
+    FPY.Token
+
+  Other-modules:
+    Paths_fpy_mvp
+
+  Build-depends:
+    base   >= 4.7  && < 5,
+    lens   >= 4.16 && < 4.17,
+    text   >= 1.2  && < 1.3,
+    parsec >= 3.1  && < 3.2
+
+Executable fpy-mvp
+  Main-is:          Main.hs
+  Hs-source-dirs:   src
+  Ghc-options:      -threaded -rtsopts -with-rtsopts=-N -Wall
+  Default-language: Haskell2010
+
+  Other-modules:
+    Paths_fpy_mvp
+
+  Build-depends:
+    base >= 4.7  && < 5,
+    lens >= 4.16 && < 4.17,
+    text >= 1.2  && < 1.3,
+    fpy-mvp
